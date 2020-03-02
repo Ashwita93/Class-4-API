@@ -1,7 +1,7 @@
 var fs = require('fs');
-var data = fs.readFileSync('words.json');
-var words = JSON.parse(data);
-console.log(words);
+var data = fs.readFileSync('characters.json');
+var actor = JSON.parse(data);
+console.log(actor);
 
 // console.log('server is starting');
 
@@ -15,36 +15,36 @@ function listening(){
 
 app.use(express.static('website'));
 
-app.get('/add/:word/:score', addWord);
+app.get('/add/:name/:desc', addActor);
 
-function addWord(request, response){
+function addActor(request, response){
   var data = request.params;
-  var word = data.word;
-  var score = Number(data.score);
+  var name = data.name;
+  var desc = data.desc;
   var reply;
-  if(!score){
+  if(!desc){
     reply = {
-      msg: "scored is required"
+      msg: "House of the Actor is required"
     }
   }else{
-    words[word] = score; 
+    actor[name] = desc; 
     reply= {
-      msg: "Thank you for your word",
-      word: word,
-      score: score
+      msg: "Added actor successfully",
+      "Actor's-Name": name,
+      "House": desc
     }
-    // var data = JSON.stringify(words, null, 2);
-    // fs.writeFile('words.json', data, finished);
+    var data = JSON.stringify(actor, null, 2);
+    fs.writeFile('characters.json', data, finished);
 
-    // function finished(err){
-    //   console.log('all set.');
-    //   reply = {
-    //     word: word,
-    //     score: score,
-    //     staus: "success"
-    //   }
+    function finished(err){
+      console.log('all set.');
+      reply = {
+        "Actor's-Name": name,
+        "House": desc,
+        staus: "success"
+      }
       
-    // }
+    }
   }
   response.send(reply);
   
@@ -53,24 +53,24 @@ function addWord(request, response){
 app.get('/all', sendAll);
 
 function sendAll(request, response){
-  response.send(words);
+  response.send(actor);
 }
 
-app.get('/search/:word', searchWord);
+app.get('/search/:name', searchActor);
 
-function searchWord(request, response) {
+function searchActor(request, response) {
   var word = request.params.word;
   var reply;
-  if(words[word]){
+  if(actor[word]){
     reply = {
       status: "found",
-      word: word,
-      score: words[word]
+      name: name,
+      desc: actor[desc]
     }
   }else{
     reply = {
       status: "not found",
-      word: word
+      name: name
     }
   }
   response.send(reply);
