@@ -1,5 +1,10 @@
 ## Week 4: Building API's/Building Harry Potter Characters List
 
+
+Blog Link: http://ashwitapalekar.com/week-4-building-apis-building-harry-potter-characters-list/
+Glitch Link: https://ashwita93-class-4-api.glitch.me/
+View Link: https://ashwita93-class-4-api.glitch.me/all
+
 This week we were tasked to follow the last weeks slides and class work/workbook which was to build our own API's using node.js and then creating a client side interface to get, post, delete the endpoints. 
 
 However, since the topic is quiet extensive and I decided to follow one of the references - Dan Shiffman's videos on building an API using Node (https://www.youtube.com/watch?v=P-Upi9TMrBk&t=1s) which was shared in the assignment's guide. I ended up following the video and build the code similar to how Dan does in the video and understood a lot of concepts that I wasn't a 100% sure on. 
