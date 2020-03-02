@@ -8,4 +8,6 @@ However, when I tried to follow the workbook, I was confused with some of the in
 
 So currently, This is what I have managed to achieve. 
 1. I have the respository of all the data shown when I navigate to http://localhost:3000/all. The path needs to be /all
-2. If I wish to add more data to the JSON file, I can do it via http://localhost:3000/add/<the characted name>/<the house they belong to>
+2. If I wish to add more data to the JSON file, I can do it via http://localhost:3000/add/(the character's name)/(the house they belong to). For Example http://localhost:3000/add/Harry Potter/Gryffindor
+3. If I wish to search to see if the data exists I can do it via http://localhost:3000/search/(Character's Name). For Example, http://localhost:3000/search/Harry Potter
+
